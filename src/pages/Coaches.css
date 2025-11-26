@@ -1,0 +1,78 @@
+/* ============================================
+   COACHES PAGE BASE STYLES
+   ============================================ */
+.coaches-page {
+  min-height: calc(100vh - 400px);
+  padding: 4rem 0;
+}
+
+.coaches-page__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.coaches-page__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.coaches-page__title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #34d399, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coaches-page__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   COACHES GRID
+   ============================================ */
+.coaches-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .coaches-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .coaches-page__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .coaches-page {
+    padding: 6rem 0;
+  }
+
+  .coaches-page__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .coaches-page__title {
+    font-size: 4rem;
+  }
+}

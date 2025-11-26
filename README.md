@@ -2,6 +2,35 @@
 
 Goal: Create a fully navigable, visually polished demo so the client can see what the final app will feel like — without backend functionality yet.
 
+Project Structure Overview
+
+src/
+├── components/
+│ ├── layout/
+│ │ ├── Navbar.tsx // Sticky nav with logo & links
+│ │ └── Footer.tsx // Contact info, hours, socials
+│ ├── home/
+│ │ ├── Hero.tsx // Main landing hero section
+│ │ └── Testimonials.tsx // Optional testimonials carousel
+│ └── ui/
+│ ├── ProgramCard.tsx // Reusable card for programs
+│ ├── CoachCard.tsx // Reusable card for trainers
+│ └── PricingCard.tsx // Reusable card for memberships
+├── pages/
+│ ├── Home.tsx // Landing page (Hero + sections)
+│ ├── Programs.tsx // Services/programs grid
+│ ├── Coaches.tsx // Trainers showcase
+│ ├── Membership.tsx // Pricing tiers
+│ └── Contact.tsx // Contact form + map
+├── store/
+│ └── useUIStore.ts // Zustand: dark mode, UI state
+├── data/
+│ ├── programs.ts // Mock program data
+│ ├── coaches.ts // Mock trainer data
+│ └── memberships.ts // Mock pricing data
+└── router/
+└── index.tsx // Updated routes
+
 ✅ MUST-HAVE MVP FEATURES (Frontend Only)
 
 These are the minimum components needed to impress the client and clearly show the product vision.

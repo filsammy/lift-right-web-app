@@ -1,0 +1,105 @@
+/* ============================================
+   MEMBERSHIP PAGE BASE STYLES
+   ============================================ */
+.membership-page {
+  min-height: calc(100vh - 400px);
+  padding: 4rem 0;
+}
+
+.membership-page__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.membership-page__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.membership-page__title {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(135deg, #34d399, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.membership-page__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  opacity: 0.85;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   MEMBERSHIP GRID
+   ============================================ */
+.membership-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  animation: fadeIn 1s ease-out;
+  margin-bottom: 3rem;
+}
+
+/* ============================================
+   PAGE FOOTER NOTE
+   ============================================ */
+.membership-page__footer {
+  text-align: center;
+  margin-top: 3rem;
+  animation: fadeIn 1.2s ease-out;
+}
+
+.membership-page__note {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .membership-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .membership-page__title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .membership-page {
+    padding: 6rem 0;
+  }
+
+  .membership-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .membership-page__title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .membership-page__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

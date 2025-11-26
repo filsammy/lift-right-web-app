@@ -1,0 +1,76 @@
+/* ============================================
+   PROGRAM CARD BASE STYLES
+   ============================================ */
+.program-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.program-card--dark {
+  background-color: var(--color-surface-dark);
+  border-color: var(--color-border-dark);
+}
+
+.program-card--light {
+  background-color: var(--color-surface-light);
+  border-color: var(--color-border-light);
+}
+
+.program-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-green);
+  border-color: var(--color-primary);
+}
+
+/* ============================================
+   PROGRAM CARD ELEMENTS
+   ============================================ */
+.program-card__icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  transition: var(--transition-fast);
+}
+
+.program-card:hover .program-card__icon {
+  transform: scale(1.1);
+}
+
+.program-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--color-primary);
+}
+
+.program-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.program-card__button {
+  padding: 0.625rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.program-card__button:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
