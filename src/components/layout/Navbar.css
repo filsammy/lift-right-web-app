@@ -13,18 +13,7 @@
 }
 
 .navbar--dark {
-  background: linear-gradient(
-  90deg,
-  rgba(255, 255, 255, 0.95) 0%,     /* bright start */
-  rgba(30, 30, 30, 0.9) 60%,        /* dark middle */
-  rgba(20, 20, 20, 0.9) 80%,        /* darker */
-  rgba(0, 0, 0, 0.95) 100%           /* darkest end */
-);
-
-
-  border-bottom-color: rgba(252, 211, 77, 0.1);
-  color: #ffffff;
-  position: relative;
+  background: linear-gradient(150deg, #FCD34D 25%, #000000 25%, #000000 25%, #000000 25%);
 }
 
 .navbar--dark::before {
@@ -39,7 +28,6 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(245, 245, 245, 0.9) 100%);
   border-bottom-color: rgba(245, 158, 11, 0.15);
   color: #0a0a0a;
-  position: relative;
 }
 
 .navbar--light::before {
@@ -71,16 +59,11 @@
   gap: 0.5rem;
   border-radius: 50%;
   text-decoration: none;
-  color: var(--color-primary);
   transition: transform 0.2s ease;
 }
 
 .navbar__logo:hover {
   transform: translateY(-2px);
-}
-
-.navbar__logo-text {
-  color: inherit;
 }
 
 .navbar__logo-icon {
@@ -95,10 +78,12 @@
 .navbar__logo img {
   border-radius: 5%; /* rounds the image */
   width: 200px;        /* change size */
-  height: 50px;       /* ensure it's square for perfect circle */
+  height: 40px;       /* ensure it's square for perfect circle */
   object-fit: cover;  /* keeps image proportions */
-}
-
+   filter: drop-shadow(0 0 1px rgb(255, 255, 255))
+          drop-shadow(0 0 0.5px rgb(255, 255, 255));
+} 
+                                  
 
 /* ============================================
    DESKTOP NAVIGATION LINKS
@@ -266,7 +251,6 @@
 .navbar--dark .navbar__mobile-menu {
   background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(26, 26, 26, 0.95) 100%);
   border-bottom: 1px solid rgba(252, 211, 77, 0.1);
-  position: relative;
 }
 
 .navbar--dark .navbar__mobile-menu::before {

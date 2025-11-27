@@ -9,7 +9,7 @@
 }
 
 .footer--dark {
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: #000000;
   border-top-color: rgba(252, 211, 77, 0.1);
   color: #ffffff;
 }
@@ -52,6 +52,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  border-top: 1px solid;
+  border-color: #FCD34D;
 }
 
 /* ============================================
@@ -73,6 +75,15 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
+}
+
+.footer__logo-img {
+  width: 200px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5%;
+  filter: drop-shadow(0 0 1px rgb(255, 255, 255))
+          drop-shadow(0 0 0.5px rgb(255, 255, 255));
 }
 
 .footer__logo-text {
@@ -109,7 +120,7 @@
   height: 2.5rem;
   font-size: 1.25rem;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 20%;
   transition: all 0.3s ease;
   opacity: 0.6;
   position: relative;
@@ -118,17 +129,18 @@
 
 .footer--dark .footer__social-link {
   background-color: rgba(255, 255, 255, 0.05);
+  color: #FCD34D;
 }
 
 .footer--light .footer__social-link {
   background-color: rgba(0, 0, 0, 0.05);
+  color: #0a0a0a;
 }
 
 .footer__social-link::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gradient-yellow);
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: inherit;
@@ -142,6 +154,7 @@
   opacity: 1;
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4), 0 0 16px rgba(252, 211, 77, 0.3);
+  color: #3d3d3d;
 }
 
 .footer__social-link:hover {
@@ -270,11 +283,11 @@
 }
 
 .footer--dark .footer__bottom {
-  border-top-color: rgba(255, 255, 255, 0.1);
+  border-top-color: #FCD34D;
 }
 
 .footer--light .footer__bottom {
-  border-top-color: rgba(0, 0, 0, 0.1);
+  border-top-color: #FCD34D;
 }
 
 .footer__copyright {

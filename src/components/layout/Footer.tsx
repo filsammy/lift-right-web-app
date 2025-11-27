@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useUIStore } from "../../store/useUIStore";
 import "./Footer.css";
+import Logo from "../../assets/LiftRightLogo.png";
 
 export default function Footer() {
   const darkMode = useUIStore((state) => state.darkMode);
@@ -12,8 +13,7 @@ export default function Footer() {
         {/* Column 1: About */}
         <div className="footer__column">
           <h3 className="footer__heading">
-            <span className="footer__logo-text">LiftRight</span>
-            <span className="footer__logo-icon">🏋️</span>
+            <img src={Logo} alt="LiftRight Logo" className="footer__logo-img" />
           </h3>
           <p className="footer__description">
             Train Smart. Lift Right.
@@ -22,16 +22,16 @@ export default function Footer() {
           </p>
           <div className="footer__social">
             <a href="#" className="footer__social-link" aria-label="Facebook">
-              📘
+              <i className="lab la-facebook-f"></i>
             </a>
             <a href="#" className="footer__social-link" aria-label="Instagram">
-              📷
+              <i className="lab la-instagram"></i>
             </a>
             <a href="#" className="footer__social-link" aria-label="Twitter">
-              🐦
+              <i className="lab la-twitter"></i>
             </a>
             <a href="#" className="footer__social-link" aria-label="YouTube">
-              📺
+              <i className="lab la-youtube"></i>
             </a>
           </div>
         </div>
@@ -63,19 +63,19 @@ export default function Footer() {
           <h4 className="footer__title">Contact Us</h4>
           <div className="footer__contact">
             <p className="footer__contact-item">
-              <span className="footer__contact-icon">📍</span>
+              <i className="las la-map-marker footer__contact-icon"></i>
               <span>123 Fitness Street, Gym City, GY 12345</span>
             </p>
             <p className="footer__contact-item">
-              <span className="footer__contact-icon">📞</span>
+              <i className="las la-phone footer__contact-icon"></i>
               <span>(555) 123-4567</span>
             </p>
             <p className="footer__contact-item">
-              <span className="footer__contact-icon">✉️</span>
+              <i className="las la-envelope footer__contact-icon"></i>
               <span>info@liftright.gym</span>
             </p>
             <p className="footer__contact-item">
-              <span className="footer__contact-icon">🕐</span>
+              <i className="las la-clock footer__contact-icon"></i>
               <span>
                 Mon-Fri: 5AM-11PM
                 <br />
