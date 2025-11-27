@@ -1,39 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* ============================================
    CSS CUSTOM PROPERTIES
    ============================================ */
 :root {
   /* Light Mode Colors */
-  --color-bg-light: #f9fafb;
-  --color-surface-light: #ffffff;
-  --color-text-light: #111827;
-  --color-text-secondary-light: #4b5563;
-  --color-border-light: #e5e7eb;
+  --color-bg-light: #ffffff;
+  --color-surface-light: #f5f5f5;
+  --color-text-light: #0a0a0a;
+  --color-text-secondary-light: #737373;
+  --color-border-light: rgba(0, 0, 0, 0.1);
   
   /* Dark Mode Colors */
-  --color-bg-dark: #111827;
-  --color-surface-dark: #1f2937;
-  --color-text-dark: #f9fafb;
-  --color-text-secondary-dark: #9ca3af;
-  --color-border-dark: #374151;
+  --color-bg-dark: #0a0a0a;
+  --color-surface-dark: #1a1a1a;
+  --color-text-dark: #ffffff;
+  --color-text-secondary-dark: #a3a3a3;
+  --color-border-dark: rgba(255, 255, 255, 0.1);
   
-  /* Brand Colors */
-  --color-primary: #10b981;
-  --color-primary-hover: #059669;
-  --color-primary-light: #34d399;
+  /* Brand Colors - Yellow/Gold Gradient System */
+  --color-primary: #FCD34D;
+  --color-primary-hover: #FBBF24;
+  --color-primary-light: #FDE68A;
+  --color-primary-dark: #F59E0B;
+  --color-gold: #F59E0B;
+  --color-gold-dark: #D97706;
+  
+  /* Gradient Definitions */
+  --gradient-yellow: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  --gradient-yellow-reverse: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+  --gradient-dark: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  --gradient-dark-radial: radial-gradient(circle at top right, rgba(252, 211, 77, 0.05) 0%, transparent 50%);
+  --gradient-glow: radial-gradient(circle at center, rgba(252, 211, 77, 0.15) 0%, transparent 70%);
+  
+  /* Accent Colors */
+  --color-accent-yellow: #FCD34D;
+  --color-accent-gold: #F59E0B;
   
   /* Transitions */
   --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s ease;
+  --transition-glow: all 0.4s ease;
   
-  /* Shadows */
+  /* Shadows - Enhanced with Glow */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-green: 0 0 20px rgba(16, 185, 129, 0.3);
+  --shadow-yellow: 0 0 20px rgba(252, 211, 77, 0.4);
+  --shadow-yellow-lg: 0 8px 24px rgba(252, 211, 77, 0.35);
+  --shadow-yellow-xl: 0 12px 32px rgba(252, 211, 77, 0.5);
+  --shadow-glow-sm: 0 0 10px rgba(252, 211, 77, 0.3);
+  --shadow-glow-md: 0 0 20px rgba(252, 211, 77, 0.4);
+  --shadow-glow-lg: 0 0 30px rgba(252, 211, 77, 0.5);
+  
+  /* Gray Scale */
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
 }
 
 /* ============================================
@@ -72,12 +100,51 @@
   }
 }
 
-@keyframes pulse-green {
+@keyframes pulse-yellow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 0 0 rgba(252, 211, 77, 0.7);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 10px rgba(252, 211, 77, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(252, 211, 77, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(252, 211, 77, 0.6);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(252, 211, 77, 0.8));
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
@@ -96,6 +163,10 @@
   animation: slideInRight 0.6s ease-out forwards;
 }
 
+.animate-pulse-yellow {
+  animation: pulse-yellow 2s infinite;
+}
+
 .transition-base {
   transition: var(--transition-base);
 }
@@ -109,6 +180,22 @@
    ============================================ */
 .card-hover {
   transition: var(--transition-base);
+  position: relative;
+}
+
+.card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.card-hover:hover::before {
+  opacity: 1;
 }
 
 .card-hover:hover {
@@ -116,28 +203,53 @@
   box-shadow: var(--shadow-lg);
 }
 
-.card-hover-green:hover {
-  box-shadow: var(--shadow-green);
+.card-hover-yellow:hover {
+  box-shadow: var(--shadow-yellow-lg);
+}
+
+.card-hover-glow {
+  transition: var(--transition-glow);
+}
+
+.card-hover-glow:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow-lg);
 }
 
 /* ============================================
    BUTTON STYLES
    ============================================ */
 .btn-primary {
-  background-color: var(--color-primary);
-  color: white;
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
+  color: #0a0a0a;
   padding: 0.75rem 2rem;
   border-radius: 0.5rem;
   font-weight: 600;
   transition: var(--transition-base);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-yellow-reverse);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-green);
+  box-shadow: var(--shadow-yellow-lg);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
 }
 
 .btn-secondary {
@@ -149,12 +261,28 @@
   transition: var(--transition-base);
   border: 2px solid var(--color-primary);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-yellow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: white;
+  color: #0a0a0a;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-md);
+}
+
+.btn-secondary:hover::before {
+  opacity: 1;
 }
 
 /* ============================================
@@ -203,10 +331,39 @@ html {
    GRADIENT TEXT
    ============================================ */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.gradient-text-alt {
+  background: var(--gradient-yellow-reverse);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.gradient-text-static {
+  background: var(--gradient-yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+.gradient-bg-yellow {
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 /* ============================================
@@ -222,5 +379,129 @@ html {
    ============================================ */
 ::selection {
   background-color: var(--color-primary);
-  color: white;
+  color: #0a0a0a;
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-700);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* ============================================
+   UTILITY BORDERS
+   ============================================ */
+.border-yellow {
+  border-color: var(--color-primary);
+}
+
+.border-t-yellow {
+  border-top-color: var(--color-primary);
+}
+
+.border-b-yellow {
+  border-bottom-color: var(--color-primary);
+}
+
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+.text-yellow {
+  color: var(--color-primary);
+}
+
+.text-yellow-hover:hover {
+  color: var(--color-primary);
+}
+
+/* ============================================
+   BACKGROUND UTILITIES
+   ============================================ */
+.bg-yellow {
+  background-color: var(--color-primary);
+}
+
+.bg-yellow-hover:hover {
+  background-color: var(--color-primary);
+}
+
+/* ============================================
+   GLASS EFFECT (Glassmorphism)
+   ============================================ */
+.glass-dark {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.glass-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(252, 211, 77, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.glass-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Glass with stronger yellow tint */
+.glass-yellow {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(252, 211, 77, 0.2);
+  position: relative;
+}
+
+.glass-yellow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(252, 211, 77, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Light/Dark color/text */
+.light {
+  color: white
+  var(--color-text-dark)
+}
+
+.dark {
+  color: #0a0a0a
+  var(--color-text-light)
 }

@@ -4,17 +4,42 @@
 .footer {
   margin-top: auto;
   border-top: 1px solid;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .footer--dark {
-  background-color: #0f172a;
-  border-top-color: var(--color-border-dark);
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+  border-top-color: rgba(252, 211, 77, 0.1);
+  color: #ffffff;
+}
+
+.footer--dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at bottom left, rgba(252, 211, 77, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .footer--light {
-  background-color: #f8fafc;
-  border-top-color: var(--color-border-light);
+  background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 100%);
+  border-top-color: rgba(245, 158, 11, 0.15);
+  color: #0a0a0a;
+}
+
+.footer--light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.02) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 /* ============================================
@@ -56,12 +81,17 @@
 
 .footer__logo-icon {
   font-size: 1.75rem;
+  transition: transform 0.3s ease;
+}
+
+.footer__heading:hover .footer__logo-icon {
+  transform: rotate(-10deg) scale(1.1);
 }
 
 .footer__description {
   font-size: 0.9375rem;
   line-height: 1.6;
-  opacity: 0.8;
+  opacity: 0.7;
   margin: 0;
 }
 
@@ -80,8 +110,10 @@
   font-size: 1.25rem;
   text-decoration: none;
   border-radius: 0.5rem;
-  transition: var(--transition-fast);
-  opacity: 0.7;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+  position: relative;
+  overflow: hidden;
 }
 
 .footer--dark .footer__social-link {
@@ -92,10 +124,29 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+.footer__social-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-yellow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.footer__social-link:hover::before {
+  opacity: 1;
+}
+
 .footer__social-link:hover {
   opacity: 1;
-  background-color: var(--color-primary);
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4), 0 0 16px rgba(252, 211, 77, 0.3);
+}
+
+.footer__social-link:hover {
+  position: relative;
+  z-index: 1;
 }
 
 /* ============================================
@@ -106,6 +157,19 @@
   font-weight: 600;
   margin: 0 0 0.75rem 0;
   color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.footer__title::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--gradient-yellow);
+  border-radius: 2px;
 }
 
 .footer__links {
@@ -117,16 +181,39 @@
 .footer__link {
   font-size: 0.9375rem;
   text-decoration: none;
-  color: inherit;
-  opacity: 0.8;
-  transition: var(--transition-fast);
+  opacity: 0.7;
+  transition: all 0.2s ease;
   width: fit-content;
+  position: relative;
+  padding-left: 0;
+}
+
+.footer--dark .footer__link {
+  color: #ffffff;
+}
+
+.footer--light .footer__link {
+  color: #0a0a0a;
+}
+
+.footer__link::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.2s ease;
 }
 
 .footer__link:hover {
   opacity: 1;
   color: var(--color-primary);
-  transform: translateX(5px);
+  padding-left: 1.25rem;
+}
+
+.footer__link:hover::before {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* ============================================
@@ -144,12 +231,28 @@
   font-size: 0.9375rem;
   line-height: 1.5;
   margin: 0;
-  opacity: 0.8;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.footer__contact-item:hover {
+  opacity: 1;
+  transform: translateX(3px);
 }
 
 .footer__contact-icon {
   font-size: 1.125rem;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+}
+
+.footer__contact-item:hover .footer__contact-icon {
+  transform: scale(1.2);
+  filter: brightness(1.2);
 }
 
 /* ============================================
@@ -177,7 +280,12 @@
 .footer__copyright {
   font-size: 0.875rem;
   margin: 0;
-  opacity: 0.7;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.footer__copyright:hover {
+  opacity: 0.8;
 }
 
 .footer__legal {
@@ -189,9 +297,28 @@
 
 .footer__legal-link {
   text-decoration: none;
-  color: inherit;
-  opacity: 0.7;
-  transition: var(--transition-fast);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.footer--dark .footer__legal-link {
+  color: #ffffff;
+}
+
+.footer--light .footer__legal-link {
+  color: #0a0a0a;
+}
+
+.footer__legal-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gradient-yellow);
+  transition: width 0.3s ease;
 }
 
 .footer__legal-link:hover {
@@ -199,8 +326,12 @@
   color: var(--color-primary);
 }
 
+.footer__legal-link:hover::after {
+  width: 100%;
+}
+
 .footer__separator {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 /* ============================================
@@ -225,5 +356,37 @@
   .footer__container {
     grid-template-columns: 2fr 1fr 1.5fr;
     gap: 4rem;
+  }
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+.footer__link:focus-visible,
+.footer__social-link:focus-visible,
+.footer__legal-link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .footer__social-link,
+  .footer__link,
+  .footer__contact-item,
+  .footer__legal-link,
+  .footer__logo-icon,
+  .footer__contact-icon {
+    transition: none;
+  }
+  
+  .footer__social-link:hover,
+  .footer__link:hover,
+  .footer__contact-item:hover,
+  .footer__contact-icon {
+    transform: none;
   }
 }
