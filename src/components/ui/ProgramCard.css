@@ -9,24 +9,56 @@
   padding: 2rem;
   border-radius: 1rem;
   border: 1px solid;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .program-card--dark {
-  background-color: var(--color-surface-dark);
-  border-color: var(--color-border-dark);
+  background-color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.program-card--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(252, 211, 77, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.program-card--dark:hover::before {
+  opacity: 1;
 }
 
 .program-card--light {
-  background-color: var(--color-surface-light);
-  border-color: var(--color-border-light);
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0a0a0a;
+}
+
+.program-card--light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.program-card--light:hover::before {
+  opacity: 1;
 }
 
 .program-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-green);
-  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(252, 211, 77, 0.35), 0 0 30px rgba(252, 211, 77, 0.2);
+  border-color: #FCD34D;
 }
 
 /* ============================================
@@ -35,42 +67,146 @@
 .program-card__icon {
   font-size: 3.5rem;
   margin-bottom: 1rem;
-  transition: var(--transition-fast);
+  transition: all 0.3s ease;
+  filter: grayscale(0);
+  position: relative;
+  z-index: 1;
+}
+
+.program-card--dark .program-card__icon {
+  filter: drop-shadow(0 0 8px rgba(252, 211, 77, 0.3));
+}
+
+.program-card--light .program-card__icon {
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.2));
 }
 
 .program-card:hover .program-card__icon {
-  transform: scale(1.1);
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 12px rgba(252, 211, 77, 0.6));
 }
 
 .program-card__title {
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
-  color: var(--color-primary);
+  color: #FCD34D;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.program-card:hover .program-card__title {
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 2s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .program-card__description {
   font-size: 0.9375rem;
   line-height: 1.6;
-  opacity: 0.85;
   margin: 0 0 1.5rem 0;
   flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.program-card--dark .program-card__description {
+  color: #a3a3a3;
+  opacity: 0.85;
+}
+
+.program-card--light .program-card__description {
+  color: #737373;
+  opacity: 0.9;
+}
+
+.program-card:hover .program-card__description {
+  opacity: 1;
 }
 
 .program-card__button {
   padding: 0.625rem 1.75rem;
-  background-color: transparent;
-  color: var(--color-primary);
+  background: transparent;
   font-weight: 600;
   font-size: 0.9375rem;
-  border: 2px solid var(--color-primary);
+  border: 2px solid #FCD34D;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.program-card--dark .program-card__button {
+  color: #FCD34D;
+}
+
+.program-card--light .program-card__button {
+  color: #F59E0B;
+}
+
+.program-card__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-yellow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.program-card__button:hover::before {
+  opacity: 1;
 }
 
 .program-card__button:hover {
-  background-color: var(--color-primary);
-  color: white;
+  color: #0a0a0a;
+  border-color: #FCD34D;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4), 0 0 16px rgba(252, 211, 77, 0.3);
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+.program-card:focus-visible,
+.program-card__button:focus-visible {
+  outline: 2px solid #FCD34D;
+  outline-offset: 2px;
+  border-radius: 1rem;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .program-card,
+  .program-card__icon,
+  .program-card__title,
+  .program-card__button {
+    transition: none;
+    animation: none;
+  }
+  
+  .program-card:hover,
+  .program-card:hover .program-card__icon {
+    transform: none;
+  }
 }

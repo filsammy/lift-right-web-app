@@ -23,12 +23,12 @@ export default function CoachCard({ coach }: CoachCardProps) {
         <h3 className="coach-card__name">{coach.name}</h3>
 
         <div className="coach-card__specialization">
-          <span className="coach-card__label">Specialization:</span>
+          <i className="las la-dumbbell coach-card__icon"></i>
           <span className="coach-card__value">{coach.specialization}</span>
         </div>
 
         <div className="coach-card__experience">
-          <span className="coach-card__label">Experience:</span>
+          <i className="las la-award coach-card__icon"></i>
           <span className="coach-card__value">{coach.experience}</span>
         </div>
 

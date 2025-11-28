@@ -16,7 +16,9 @@ export default function PricingCard({ membership }: PricingCardProps) {
       } ${membership.popular ? "pricing-card--popular" : ""}`}
     >
       {membership.popular && (
-        <div className="pricing-card__badge">Most Popular</div>
+        <div className="pricing-card__badge">
+          <i className="las la-crown"></i> Most Popular
+        </div>
       )}
 
       <div className="pricing-card__header">
@@ -31,7 +33,9 @@ export default function PricingCard({ membership }: PricingCardProps) {
       <ul className="pricing-card__features">
         {membership.features.map((feature, index) => (
           <li key={index} className="pricing-card__feature">
-            <span className="pricing-card__check">✓</span>
+            <span className="pricing-card__check">
+              <i className="las la-check"></i>
+            </span>
             <span>{feature}</span>
           </li>
         ))}
