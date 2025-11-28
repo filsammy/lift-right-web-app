@@ -15,7 +15,8 @@ export default function ProgramCard({ program }: ProgramCardProps) {
         darkMode ? "program-card--dark" : "program-card--light"
       }`}
     >
-      <div className="program-card__icon">{program.icon}</div>
+      {/* program.icon must now be a Line Awesome class like "las la-running" */}
+      <i className={`program-card__icon ${program.icon}`}></i>
       <h3 className="program-card__title">{program.title}</h3>
       <p className="program-card__description">{program.description}</p>
       <button className="program-card__button">Learn More</button>

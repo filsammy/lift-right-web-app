@@ -8,32 +8,74 @@
   padding: 2rem;
   border-radius: 1rem;
   border: 1px solid;
-  transition: var(--transition-base);
+  transition: all 0.3s ease;
+  /* overflow: hidden; Removed to allow badge to extend */
 }
 
 .pricing-card--dark {
-  background-color: var(--color-surface-dark);
-  border-color: var(--color-border-dark);
+  background-color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.pricing-card--dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(252, 211, 77, 0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-card--dark:hover::before {
+  opacity: 1;
 }
 
 .pricing-card--light {
-  background-color: var(--color-surface-light);
-  border-color: var(--color-border-light);
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0a0a0a;
+}
+
+.pricing-card--light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pricing-card--light:hover::before {
+  opacity: 1;
 }
 
 .pricing-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Popular Card Variant */
 .pricing-card--popular {
-  border-color: var(--color-primary);
+  border-color: #FCD34D;
   border-width: 2px;
 }
 
+.pricing-card--popular::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(252, 211, 77, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .pricing-card--popular:hover {
-  box-shadow: var(--shadow-green);
+  box-shadow: 0 12px 32px rgba(252, 211, 77, 0.3), 0 0 40px rgba(252, 211, 77, 0.15);
 }
 
 /* ============================================
@@ -41,18 +83,19 @@
    ============================================ */
 .pricing-card__badge {
   position: absolute;
-  top: -12px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 0.375rem 1rem;
-  background-color: var(--color-primary);
-  color: white;
+  background: var(--gradient-yellow);
+  color: #0a0a0a;
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4);
+  z-index: 1;
 }
 
 /* ============================================
@@ -63,21 +106,36 @@
   padding-bottom: 1.5rem;
   border-bottom: 1px solid;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-card--dark .pricing-card__header {
-  border-bottom-color: var(--color-border-dark);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 .pricing-card--light .pricing-card__header {
-  border-bottom-color: var(--color-border-light);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card--popular .pricing-card__header {
+  border-bottom-color: rgba(252, 211, 77, 0.3);
 }
 
 .pricing-card__name {
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0 0 1rem 0;
-  color: var(--color-primary);
+  color: #FCD34D;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover .pricing-card__name {
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .pricing-card__price {
@@ -115,6 +173,8 @@
   flex-direction: column;
   gap: 0.875rem;
   flex-grow: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-card__feature {
@@ -123,6 +183,19 @@
   gap: 0.75rem;
   font-size: 0.9375rem;
   line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.pricing-card__feature:hover {
+  transform: translateX(3px);
+}
+
+.pricing-card--dark .pricing-card__feature {
+  color: #ffffff;
+}
+
+.pricing-card--light .pricing-card__feature {
+  color: #0a0a0a;
 }
 
 .pricing-card__check {
@@ -132,10 +205,10 @@
   width: 1.25rem;
   height: 1.25rem;
   flex-shrink: 0;
-  background-color: var(--color-primary);
-  color: white;
+  background: var(--gradient-yellow);
+  color: #0a0a0a;
   border-radius: 50%;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 
@@ -147,26 +220,68 @@
   padding: 1rem;
   font-size: 1rem;
   font-weight: 600;
-  border: 2px solid var(--color-primary);
+  border: 2px solid #FCD34D;
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: var(--transition-base);
-  background-color: transparent;
-  color: var(--color-primary);
+  transition: all 0.3s ease;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pricing-card--dark .pricing-card__button {
+  color: #FCD34D;
+}
+
+.pricing-card--light .pricing-card__button {
+  color: #F59E0B;
+}
+
+.pricing-card__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-yellow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.pricing-card__button:hover::before {
+  opacity: 1;
 }
 
 .pricing-card__button:hover {
-  background-color: var(--color-primary);
-  color: white;
+  color: #0a0a0a;
+  border-color: #FCD34D;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(252, 211, 77, 0.4), 0 0 16px rgba(252, 211, 77, 0.3);
 }
 
-.pricing-card__button--popular {
-  background-color: var(--color-primary);
-  color: white;
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+.pricing-card:focus-visible,
+.pricing-card__button:focus-visible {
+  outline: 2px solid #FCD34D;
+  outline-offset: 2px;
 }
 
-.pricing-card__button--popular:hover {
-  background-color: var(--color-primary-hover);
-  box-shadow: var(--shadow-green);
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card,
+  .pricing-card__name,
+  .pricing-card__feature,
+  .pricing-card__button {
+    transition: none;
+    animation: none;
+  }
+  
+  .pricing-card:hover,
+  .pricing-card__feature:hover {
+    transform: none;
+  }
 }

@@ -6,6 +6,16 @@
   padding: 4rem 0;
 }
 
+.membership-page--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.membership-page--light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
 .membership-page__container {
   max-width: 1280px;
   margin: 0 auto;
@@ -25,7 +35,7 @@
   font-size: 3rem;
   font-weight: 900;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #34d399, #10b981);
+  background: var(--color-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -34,9 +44,16 @@
 .membership-page__subtitle {
   font-size: 1.125rem;
   line-height: 1.7;
-  opacity: 0.85;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.membership-page--dark .membership-page__subtitle {
+  color: var(--color-text-secondary-dark);
+}
+
+.membership-page--light .membership-page__subtitle {
+  color: var(--color-text-secondary-light);
 }
 
 /* ============================================
@@ -62,12 +79,20 @@
 .membership-page__note {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 0.75rem;
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
+}
+
+.membership-page--dark .membership-page__note {
+  background-color: rgba(252, 211, 77, 0.1);
+  border: 1px solid rgba(252, 211, 77, 0.3);
+}
+
+.membership-page--light .membership-page__note {
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 /* ============================================

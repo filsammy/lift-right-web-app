@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import { useUIStore } from "../../store/useUIStore";
 import "./Hero.css";
 
 export default function Hero() {
+  const darkMode = useUIStore((state) => state.darkMode);
+
   return (
-    <section className="hero">
+    <section className={`hero ${darkMode ? "hero--dark" : "hero--light"}`}>
       <div className="hero__container">
         <div className="hero__content">
           <h1 className="hero__title">

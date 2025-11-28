@@ -13,7 +13,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="contact-page">
+    <div className={`contact-page ${darkMode ? "contact-page--dark" : "contact-page--light"}`}>
       <div className="contact-page__container">
         <header className="contact-page__header">
           <h1 className="contact-page__title">Get In Touch</h1>

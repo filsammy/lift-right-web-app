@@ -6,6 +6,16 @@
   padding: 4rem 0;
 }
 
+.coaches-page--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.coaches-page--light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
 .coaches-page__container {
   max-width: 1280px;
   margin: 0 auto;
@@ -25,7 +35,7 @@
   font-size: 3rem;
   font-weight: 900;
   margin: 0 0 1rem 0;
-  background: linear-gradient(135deg, #34d399, #10b981);
+  background: var(--color-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -34,9 +44,16 @@
 .coaches-page__subtitle {
   font-size: 1.125rem;
   line-height: 1.7;
-  opacity: 0.85;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.coaches-page--dark .coaches-page__subtitle {
+  color: var(--color-text-secondary-dark);
+}
+
+.coaches-page--light .coaches-page__subtitle {
+  color: var(--color-text-secondary-light);
 }
 
 /* ============================================
