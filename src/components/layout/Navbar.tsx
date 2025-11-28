@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useUIStore } from "../../store/useUIStore";
 import "./Navbar.css";
+import Logo from "../../assets/LiftRightLogo.png";
 
 export default function Navbar() {
   const location = useLocation();
@@ -27,8 +28,7 @@ export default function Navbar() {
       <div className="navbar__container">
         {/* Logo */}
         <Link to="/" className="navbar__logo" onClick={closeMobileMenu}>
-          <span className="navbar__logo-text">LiftRight</span>
-          <span className="navbar__logo-icon">🏋️</span>
+          <img src={Logo} alt="logo" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -54,7 +54,11 @@ export default function Navbar() {
             className="navbar__theme-toggle"
             aria-label="Toggle dark mode"
           >
-            {darkMode ? "☀️" : "🌙"}
+            {darkMode ? (
+              <i className="las la-sun" style={{ color: "#FCD34D" }}></i>
+            ) : (
+              <i className="las la-sun"></i>
+            )}
           </button>
 
           {/* Join Now Button (Desktop) */}

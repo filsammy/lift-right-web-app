@@ -9,14 +9,14 @@ export default function Hero() {
           <h1 className="hero__title">
             <span className="hero__title-main">LiftRight</span>
             <span className="hero__title-tagline">
-              Train Smart. Lift Right.
+              TRAIN RIGHT FOR A FIT LIFE.
             </span>
           </h1>
 
           <p className="hero__description">
             Transform your fitness journey with expert coaching,
             state-of-the-art equipment, and a community that pushes you to be
-            your best.
+            your best. Truly a journey with no sideways.
           </p>
 
           <div className="hero__cta-group">
