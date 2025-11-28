@@ -9,7 +9,7 @@ export default function Hero() {
           <h1 className="hero__title">
             <span className="hero__title-main">LiftRight</span>
             <span className="hero__title-tagline">
-              Train Right for a Fit Life.
+              TRAIN RIGHT FOR A FIT LIFE.
             </span>
           </h1>
 
