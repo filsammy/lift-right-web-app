@@ -41,13 +41,7 @@ export default function PricingCard({ membership }: PricingCardProps) {
         ))}
       </ul>
 
-      <button
-        className={`pricing-card__button ${
-          membership.popular ? "pricing-card__button--popular" : ""
-        }`}
-      >
-        Choose Plan
-      </button>
+      <button className="pricing-card__button">Choose Plan</button>
     </div>
   );
 }

@@ -8,16 +8,30 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #000000;
+}
+
+.hero--dark {
+  background-color: var(--color-bg-dark);
+}
+
+.hero--light {
+  background-color: var(--color-bg-light);
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(252, 211, 77, 0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
+}
+
+.hero--dark::before {
+  background: radial-gradient(circle at center, rgba(252, 211, 77, 0.08) 0%, transparent 70%);
+}
+
+.hero--light::before {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
 }
 
 /* ============================================
@@ -67,9 +81,16 @@
 .hero__title-tagline {
   font-size: 1.rem;
   font-weight: 600;
-  color: #ffffff;
   animation: slideInRight 0.8s ease-out;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero--dark .hero__title-tagline {
+  color: var(--color-text-dark);
+}
+
+.hero--light .hero__title-tagline {
+  color: var(--color-text-light);
 }
 
 /* ============================================
@@ -78,12 +99,19 @@
 .hero__description {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #a3a3a3;
   margin: 0 0 2.5rem 0;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   animation: fadeIn 1.2s ease-out;
+}
+
+.hero--dark .hero__description {
+  color: var(--color-text-secondary-dark);
+}
+
+.hero--light .hero__description {
+  color: var(--color-text-secondary-light);
 }
 
 /* ============================================
@@ -141,8 +169,8 @@
 
 .hero__cta--secondary {
   background-color: transparent;
-  color: #FCD34D;
-  border: 2px solid #FCD34D;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 }
 
 .hero__cta--secondary::before {
@@ -174,16 +202,30 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: #737373;
   font-size: 0.875rem;
   animation: fadeIn 2s ease-out, bounce 2s infinite;
+}
+
+.hero--dark .hero__scroll-indicator {
+  color: var(--color-text-secondary-dark);
+}
+
+.hero--light .hero__scroll-indicator {
+  color: var(--color-text-secondary-light);
 }
 
 .hero__scroll-text {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 500;
-  color: #a3a3a3;
+}
+
+.hero--dark .hero__scroll-text {
+  color: var(--color-text-secondary-dark);
+}
+
+.hero--light .hero__scroll-text {
+  color: var(--color-text-secondary-light);
 }
 
 .hero__scroll-icon {

@@ -6,6 +6,16 @@
   padding: 4rem 0;
 }
 
+.programs-page--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+.programs-page--light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
 .programs-page__container {
   max-width: 1280px;
   margin: 0 auto;
@@ -34,9 +44,16 @@
 .programs-page__subtitle {
   font-size: 1.125rem;
   line-height: 1.7;
-  opacity: 0.85;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.programs-page--dark .programs-page__subtitle {
+  color: var(--color-text-secondary-dark);
+}
+
+.programs-page--light .programs-page__subtitle {
+  color: var(--color-text-secondary-light);
 }
 
 /* ============================================
