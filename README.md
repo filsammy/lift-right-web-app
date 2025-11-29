@@ -1,238 +1,222 @@
-🚀 LiftRight — Frontend MVP Plan
+# LiftRight — Frontend MVP Plan
 
-Goal: Create a fully navigable, visually polished demo so the client can see what the final app will feel like — without backend functionality yet.
+**Goal:** Create a fully navigable, visually polished demo so the client can see what the final app will feel like — without backend functionality yet.
 
-Project Structure Overview
+---
 
-src/
-├── components/
-│ ├── layout/
-│ │ ├── Navbar.tsx // Sticky nav with logo & links
-│ │ └── Footer.tsx // Contact info, hours, socials
-│ ├── home/
-│ │ ├── Hero.tsx // Main landing hero section
-│ │ └── Testimonials.tsx // Optional testimonials carousel
-│ └── ui/
-│ ├── ProgramCard.tsx // Reusable card for programs
-│ ├── CoachCard.tsx // Reusable card for trainers
-│ └── PricingCard.tsx // Reusable card for memberships
-├── pages/
-│ ├── Home.tsx // Landing page (Hero + sections)
-│ ├── Programs.tsx // Services/programs grid
-│ ├── Coaches.tsx // Trainers showcase
-│ ├── Membership.tsx // Pricing tiers
-│ └── Contact.tsx // Contact form + map
-├── store/
-│ └── useUIStore.ts // Zustand: dark mode, UI state
-├── data/
-│ ├── programs.ts // Mock program data
-│ ├── coaches.ts // Mock trainer data
-│ └── memberships.ts // Mock pricing data
-└── router/
-└── index.tsx // Updated routes
+## Project Structure Overview
 
-✅ MUST-HAVE MVP FEATURES (Frontend Only)
+    src/
+    ├── components/
+    │   ├── layout/
+    │   │   ├── Navbar.tsx            // Sticky nav with logo & links
+    │   │   └── Footer.tsx            // Contact info, hours, socials
+    │   ├── home/
+    │   │   ├── Hero.tsx              // Main landing hero section
+    │   │   └── Testimonials.tsx      // Optional testimonials carousel
+    │   └── ui/
+    │       ├── ProgramCard.tsx       // Reusable card for programs
+    │       ├── CoachCard.tsx         // Reusable card for trainers
+    │       └── PricingCard.tsx       // Reusable card for memberships
+    ├── pages/
+    │   ├── Home.tsx                  // Landing page (Hero + sections)
+    │   ├── Programs.tsx              // Services/programs grid
+    │   ├── Coaches.tsx               // Trainers showcase
+    │   ├── Membership.tsx            // Pricing tiers
+    │   └── Contact.tsx               // Contact form + map
+    ├── store/
+    │   └── useUIStore.ts             // Zustand: dark mode, UI state
+    ├── data/
+    │   ├── programs.ts               // Mock program data
+    │   ├── coaches.ts                // Mock trainer data
+    │   └── memberships.ts            // Mock pricing data
+    └── router/
+        └── index.tsx                 // Updated routes
 
-These are the minimum components needed to impress the client and clearly show the product vision.
+---
 
-1. Landing Page (Hero Section)
+## MUST-HAVE MVP FEATURES (Frontend Only)
 
+### 1. Landing Page (Hero Section)
 A strong, modern, animated hero section featuring:
 
-Gym name: “LiftRight”
+- **Gym name:** `LiftRight`  
+- **Core tagline:** "Train Smart. Lift Right."  
+- Gym highlight image or looped video (optional)  
+- CTA buttons (e.g., View Memberships, Explore Programs)
 
-Core tagline: “Train Smart. Lift Right.”
+➡ *This is the most important page for the demo.*
 
-Gym highlight image or looped video (optional)
+---
 
-CTA buttons (e.g., View Memberships, Explore Programs)
-
-➡ This is the most important page for the demo.
-
-2. Navigation Bar
-
+### 2. Navigation Bar
 A clean, sticky navigation bar with:
 
-Logo
+- Logo  
+- Links: Home, Programs, Coaches / Trainers, Memberships, Contact  
+- **"Join Now"** highlighted button
 
-Links:
+---
 
-Home
-
-Programs
-
-Coaches / Trainers
-
-Memberships
-
-Contact
-
-“Join Now” highlighted button
-
-3. Footer
-
+### 3. Footer
 Footer should include:
 
-Address
-
-Operating hours
-
-Contact number
-
-Email
-
-Social links
-
-Copyright
+- Address  
+- Operating hours  
+- Contact number  
+- Email  
+- Social links  
+- Copyright
 
 Adds immediate legitimacy and professionalism.
 
-4. Programs / Services Page
+---
 
-A page showcasing what the gym offers:
+### 4. Programs / Services Page
+A page showcasing what the gym offers (use cards with icons and short descriptions):
 
-Strength Training
+- Strength Training  
+- Weight Loss  
+- Group Classes  
+- Personal Training  
+- Powerlifting  
+- Functional Fitness
 
-Weight Loss
+Use placeholder icons/images and short copy for each card.
 
-Group Classes
+---
 
-Personal Training
+### 5. Coaches / Trainers Page
+Display trainer profiles with:
 
-Powerlifting
+- Photo (placeholder)  
+- Specialization  
+- Years of experience  
+- Short bio
 
-Functional Fitness
+Use mock data (JSON or Zustand store) and placeholder images.
 
-Use cards with icons and short descriptions.
+---
 
-5. Coaches / Trainers Page
+### 6. Membership Pricing Page
+Pricing table/cards with 3–4 tiers (non-functional CTAs):
 
-Display:
+- Basic  
+- Standard  
+- Premium  
+- VIP / Personal Training Access
 
-Trainer photos
+Each card should show:
 
-Specialization
+- Price  
+- Key features / perks  
+- CTA button (e.g., "Select Plan") — UI only
 
-Experience
+---
 
-Short description
+### 7. Contact Page
+Simple contact UI with:
 
-Great for trust-building.
-Use placeholder images and mock data (Zustand or simple JSON).
+- Name input  
+- Email input  
+- Message textarea  
+- Submit button (non-functional)
 
-6. Membership Pricing Page
+Optional: Google Maps embed, address, hours.
 
-Pricing table with 3–4 tiers:
+---
 
-Basic
+### 8. Scroll Animations / Micro-interactions
+Polish with:
 
-Standard
+- Basic CSS transitions (hover, focus)  
+- Framer Motion for entrance/scroll animations (optional)  
+- Micro-interactions for buttons, cards, nav link active states
 
-Premium
+---
 
-VIP / Personal Training Access
+## ⭐ NICE-TO-HAVE EXTRAS (Optional but Impressive)
 
-Each card includes:
+Add any of these to elevate the MVP:
 
-Price
+- **Membership Comparison Table:** side-by-side features grid.  
+- **Testimonials Section:** carousel or static cards.  
+- **Gallery Page:** grid of facility images (placeholder).  
+- **Workout Program Demo UI:** visual-only dashboard with Day 1/Day 2 program cards.  
+- **Light/Dark Mode Toggle:** easy with Zustand + Tailwind; small feature, big perceived value.
 
-Features
+---
 
-CTA button (non-functional for MVP)
+## 🔧 Internal Structure Suggestions
 
-7. Contact Page
+### Zustand Usage (Frontend Only)
+Use a small global store for UI bits:
 
-Simple UI for:
+- dark mode toggle  
+- active nav state  
+- selected membership plan  
+- toast / modal state
 
-Name
+Keep it tiny — UI only, no auth or backend logic.
 
-Email
+### React Router Structure
+Minimum route set:
 
-Message
+- `/` → Home  
+- `/programs` → Programs  
+- `/coaches` → Coaches  
+- `/membership` → Membership  
+- `/contact` → Contact
 
-Submit button (non-functional)
+Use route-based code splitting for faster demo loads.
 
-Optional:
+---
 
-Google Maps embed
+## 🎨 Visual / Design Notes (Quick)
+- Tailwind CSS for fast styling.  
+- Use a consistent color system: primary (accent), neutral, success, danger.  
+- Use large hero typography and bold CTAs.  
+- Images: use royalty-free placeholders (Unsplash, Pexels) during prototyping.  
+- Icons: Heroicons / Tabler icons for program & feature cards.
 
-Gym address + hours
+---
 
-8. Scroll Animations / Micro-interactions
+## 🧩 Mock Data Guidance
+Create small mock files under `src/data/`:
 
-Use basic CSS transitions or Framer Motion to create a polished, modern feel.
+- `programs.ts` — array of `{ id, title, category, shortDesc, icon }`  
+- `coaches.ts` — array of `{ id, name, specialty, years, avatar, bio }`  
+- `memberships.ts` — array of `{ id, name, price, features[] }`
 
-⭐ NICE-TO-HAVE EXTRAS (Optional but Impressive)
+These keep components decoupled and make swapping to a real API easy later.
 
-If you want to elevate the MVP:
+---
 
-A. Membership Comparison Table
+## ✅ What Your Client Will Experience
+With this MVP the client will be able to:
 
-Side-by-side comparison chart — clients love this.
+- Browse gym offerings visually  
+- See the brand identity and tone  
+- Navigate pages like a real product  
+- Understand membership tiers and pricing visually  
+- Preview trainers and trust signals
 
-B. Testimonials Section
+**In short:** a polished, realistic prototype that feels almost production-ready — ideal for user feedback and stakeholder sign-off.
 
-Carousel or static cards with (placeholder) member feedback.
+---
 
-C. Gallery Page
+## ⚙️ Quick Checklist (Deploy-ready demo)
+- [ ] Hero + CTA (complete)  
+- [ ] Sticky Navbar (responsive)  
+- [ ] Programs grid (cards)  
+- [ ] Coaches page (profiles)  
+- [ ] Membership cards (3 tiers min)  
+- [ ] Contact form UI  
+- [ ] Footer with contact/socials  
+- [ ] Basic animations + micro-interactions  
+- [ ] Light/Dark mode toggle (optional)  
+- [ ] Routing + mock data wired
 
-A grid of gym facility images.
+---
 
-D. Workout Program Demo UI
-
-A “sample dashboard” featuring mock workout program cards, e.g.:
-
-Day 1: Chest & Triceps
-
-Day 2: Legs
-
-Day 3: Back & Biceps
-
-Purely visual demo.
-
-E. Light/Dark Mode Toggle
-
-Very easy with Zustand + Tailwind.
-Small feature, huge perceived value.
-
-🔧 Internal Structure Suggestions
-
-To keep the project clean and backend-ready:
-
-Zustand Usage (Frontend Only)
-
-Global UI state
-
-Dark mode toggle
-
-Active navbar state
-
-Selected membership plan
-
-React Router Structure
-
-Minimum routing:
-
-/
-|-- /programs
-|-- /coaches
-|-- /membership
-|-- /contact
-
-🎯 What Your Client Will Experience
-
-With this MVP, the client will be able to:
-
-Browse gym offerings
-
-See the brand identity
-
-Understand app structure
-
-Visualize memberships & pricing
-
-Preview trainers
-
-Navigate the site like a real product
-
-In short: a polished, realistic prototype that feels almost production-ready.
+Which of those would you like me to paste next? 👇
