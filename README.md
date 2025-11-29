@@ -135,7 +135,7 @@ Polish with:
 
 ---
 
-## ⭐ NICE-TO-HAVE EXTRAS (Optional but Impressive)
+## NICE-TO-HAVE EXTRAS (Optional but Impressive)
 
 Add any of these to elevate the MVP:
 
@@ -147,7 +147,7 @@ Add any of these to elevate the MVP:
 
 ---
 
-## 🔧 Internal Structure Suggestions
+## Internal Structure Suggestions
 
 ### Zustand Usage (Frontend Only)
 Use a small global store for UI bits:
@@ -172,7 +172,7 @@ Use route-based code splitting for faster demo loads.
 
 ---
 
-## 🎨 Visual / Design Notes (Quick)
+## Visual / Design Notes (Quick)
 - Tailwind CSS for fast styling.  
 - Use a consistent color system: primary (accent), neutral, success, danger.  
 - Use large hero typography and bold CTAs.  
@@ -181,7 +181,7 @@ Use route-based code splitting for faster demo loads.
 
 ---
 
-## 🧩 Mock Data Guidance
+## Mock Data Guidance
 Create small mock files under `src/data/`:
 
 - `programs.ts` — array of `{ id, title, category, shortDesc, icon }`  
@@ -192,7 +192,7 @@ These keep components decoupled and make swapping to a real API easy later.
 
 ---
 
-## ✅ What Your Client Will Experience
+## What Your Client Will Experience
 With this MVP the client will be able to:
 
 - Browse gym offerings visually  
@@ -204,19 +204,3 @@ With this MVP the client will be able to:
 **In short:** a polished, realistic prototype that feels almost production-ready — ideal for user feedback and stakeholder sign-off.
 
 ---
-
-## ⚙️ Quick Checklist (Deploy-ready demo)
-- [ ] Hero + CTA (complete)  
-- [ ] Sticky Navbar (responsive)  
-- [ ] Programs grid (cards)  
-- [ ] Coaches page (profiles)  
-- [ ] Membership cards (3 tiers min)  
-- [ ] Contact form UI  
-- [ ] Footer with contact/socials  
-- [ ] Basic animations + micro-interactions  
-- [ ] Light/Dark mode toggle (optional)  
-- [ ] Routing + mock data wired
-
----
-
-Which of those would you like me to paste next? 👇
