@@ -10,7 +10,7 @@ export const memberships: Membership[] = [
   {
     id: 1,
     name: "Basic",
-    price: 49,
+    price: 2699,
     features: [
       "24/7 Gym Access",
       "Locker Room Access",
@@ -22,7 +22,7 @@ export const memberships: Membership[] = [
   {
     id: 2,
     name: "Standard",
-    price: 79,
+    price: 4499,
     popular: true,
     features: [
       "Everything in Basic",
@@ -36,7 +36,7 @@ export const memberships: Membership[] = [
   {
     id: 3,
     name: "Premium",
-    price: 129,
+    price: 7499,
     features: [
       "Everything in Standard",
       "Personal Training (4 sessions/month)",
@@ -50,7 +50,7 @@ export const memberships: Membership[] = [
   {
     id: 4,
     name: "VIP Elite",
-    price: 199,
+    price: 11499,
     features: [
       "Everything in Premium",
       "Personal Training (8 sessions/month)",

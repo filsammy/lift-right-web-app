@@ -24,7 +24,7 @@ export default function PricingCard({ membership }: PricingCardProps) {
       <div className="pricing-card__header">
         <h3 className="pricing-card__name">{membership.name}</h3>
         <div className="pricing-card__price">
-          <span className="pricing-card__currency">$</span>
+          <span className="pricing-card__currency">₱</span>
           <span className="pricing-card__amount">{membership.price}</span>
           <span className="pricing-card__period">/month</span>
         </div>
