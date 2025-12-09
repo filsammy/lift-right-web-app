@@ -1,0 +1,241 @@
+/* ============================================
+   FEATURES SECTION BASE STYLES
+   ============================================ */
+.features {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.features--dark {
+  background-color: #0a0a0a;
+}
+
+.features--light {
+  background-color: #ffffff;
+}
+
+/* ============================================
+   FEATURES CONTAINER
+   ============================================ */
+.features__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   FEATURES HEADER
+   ============================================ */
+.features__header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.features__subtitle {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FCD34D;
+  margin: 0 0 1rem 0;
+}
+
+.features__title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin: 0 0 1rem 0;
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.features__description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.features--dark .features__description {
+  color: #a3a3a3;
+}
+
+.features--light .features__description {
+  color: #737373;
+}
+
+/* ============================================
+   FEATURES GRID
+   ============================================ */
+.features__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+
+/* ============================================
+   FEATURE CARD
+   ============================================ */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.features--dark .feature-card {
+  background-color: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.features--light .feature-card {
+  background-color: #f5f5f5;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(252, 211, 77, 0.08) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: #FCD34D;
+  box-shadow: 0 8px 24px rgba(252, 211, 77, 0.35), 0 0 30px rgba(252, 211, 77, 0.2);
+}
+
+/* ============================================
+   FEATURE CARD ELEMENTS
+   ============================================ */
+.feature-card__icon-wrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gradient-yellow);
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card:hover .feature-card__icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(252, 211, 77, 0.4);
+}
+
+.feature-card__icon {
+  font-size: 2.5rem;
+  color: #0a0a0a;
+}
+
+.feature-card__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: #FCD34D;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.feature-card:hover .feature-card__title {
+  background: var(--gradient-yellow);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feature-card__description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.features--dark .feature-card__description {
+  color: #a3a3a3;
+}
+
+.features--light .feature-card__description {
+  color: #737373;
+}
+
+/* ============================================
+   TABLET STYLES
+   ============================================ */
+@media (min-width: 768px) {
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .features__title {
+    font-size: 3rem;
+  }
+}
+
+/* ============================================
+   DESKTOP STYLES
+   ============================================ */
+@media (min-width: 1024px) {
+  .features__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .features__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

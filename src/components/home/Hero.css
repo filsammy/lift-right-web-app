@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-bottom: 0.2rem solid #FCD34D;
 }
 
 .hero--dark {
